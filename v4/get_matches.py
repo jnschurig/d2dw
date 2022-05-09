@@ -1,14 +1,14 @@
 import sys, getopt # Needed for Arguments
-import json#, requests
+import json, requests
 import constants, secrets, d2dw_lib as d2dw
 
-valid_args =  "-h                   --help                            | Information about the script. \n"
-valid_args += "-d                   --debug                           | Enable detailed output for debugging. Default is False. \n"
-valid_args += "-m 'Mode Name'       --mode          'Mode Name'       | Default: detail. Valid modes: " + str(constants.VALID_RUN_MODES) + " \n"
-valid_args += "-b <number>          --batch_size    <number>          | Default: " + str(constants.DEFAULT_BATCH_SIZE) + ". Any amount greater than the default requires pagination."
-valid_args += "-l 'Language Code'   --language      'Language Code'   | Default: " + constants.DEFAULT_LANGUAGE + ". Valid lenguages (tbd): " + str(constants.ALTERNATE_LANGUAGES) + " \n"
-valid_args += "-f 'Format Name'     --format        'Format Name'     | Default: " + constants.DEFAULT_RESULT_FORMAT + ". 'xml' is also valid, but please, just use json. Seriously, please. \n"
-valid_args += "-p {Parameters Json} --method_params {Parameters Json} | Optional. A json-formatted string or json object containing method specific parameters to use. \n"
+valid_args =  "-h                   --help                          | Information about the script. \n"
+valid_args += "-d                   --debug                         | Enable detailed output for debugging. Default is False. \n"
+valid_args += "-m 'Mode Name'       --mode          'Mode Name'     | Default: detail. Valid modes: " + str(constants.VALID_RUN_MODES) + " \n"
+valid_args += "-b <number>          --batch_size    <number>        | Default: " + str(constants.DEFAULT_BATCH_SIZE) + ". Any amount greater than the default requires pagination. \n"
+valid_args += "-l 'Language Code'   --language      'Language Code' | Default: " + constants.DEFAULT_LANGUAGE + ". Valid lenguages (tbd): " + str(constants.ALTERNATE_LANGUAGES) + " \n"
+valid_args += "-f 'Format Name'     --format        'Format Name'   | Default: " + constants.DEFAULT_RESULT_FORMAT + ". 'xml' is also valid, but please, just use json. Seriously, please. \n"
+valid_args += "-p {Json}            --method_params {Json}          | Optional. A json-formatted string or json object containing method specific parameters to use. \n"
 
 help_info  = "Help Info: \n"
 help_info += "This script will manage data requests using the API methods and save results to files. \n"
@@ -56,6 +56,8 @@ def main(argv):
 def go(creds, settings):
 
     url = d2dw.format_url('dota2_matches', 'history', creds['key'])
+
+
 
 
     return True
